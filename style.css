@@ -7,6 +7,118 @@ body {
     margin: 0;
     background: linear-gradient(135deg, #fff7f2, #ffe4d1);
     color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #1a1a1a, #2d1d1a);
+    color: #f3e7df;
+}
+
+.theme-toggle-wrap {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 20px 0;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.7);
+    color: #5a2500;
+    border: 1px solid rgba(138, 61, 0, 0.12);
+    border-radius: 999px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+body.dark .theme-toggle {
+    background: rgba(48, 48, 48, 0.8);
+    color: #f8e9df;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.payment-banner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr auto;
+    align-items: center;
+    gap: 18px;
+    max-width: 860px;
+    margin: 22px auto 0;
+    padding: 18px 22px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(40, 28, 35, 0.96), rgba(20, 15, 18, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
+}
+
+.payment-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.payment-tag {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #c9a6ff;
+}
+
+.payment-copy h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    color: #fff;
+}
+
+.payment-copy p {
+    margin: 0;
+    color: #e8d7ff;
+    font-size: 0.96rem;
+}
+
+.qr-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04), 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.qr-box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.payment-banner button {
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7d45ff, #a66bff);
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(125, 69, 255, 0.34);
+}
+
+@media (max-width: 760px) {
+    .payment-banner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .payment-copy {
+        align-items: center;
+    }
 }
 
 .hero {
@@ -44,10 +156,18 @@ body {
     color: #8a3d00;
 }
 
+body.dark .hero h1 {
+    color: #ffcf9d;
+}
+
 .hero p {
     color: #7a4b2a;
     margin-top: 10px;
     font-size: 1.05rem;
+}
+
+body.dark .hero p {
+    color: #f4d4bb;
 }
 
 .productos {
@@ -60,18 +180,39 @@ body {
 }
 
 .card {
+    position: relative;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 18px;
     box-shadow: 0 12px 24px rgba(123, 72, 23, 0.12);
     padding: 18px;
     text-align: center;
     border: 1px solid rgba(138, 61, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+body.dark .card {
+    background: rgba(31, 28, 27, 0.92);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 18px 30px rgba(123, 72, 23, 0.18);
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 20px 32px rgba(123, 72, 23, 0.18);
+    border-color: rgba(138, 61, 0, 0.15);
+}
+
+.best-seller .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, #ffb36b, #ff8d47);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: 0 8px 16px rgba(255, 141, 71, 0.3);
 }
 
 .card img {
@@ -87,17 +228,88 @@ body {
     color: #5a2500;
 }
 
+body.dark .card h2 {
+    color: #f7d5b3;
+}
+
 .card p {
     color: #666;
     min-height: 48px;
 }
 
-.card span {
-    display: block;
+body.dark .card p {
+    color: #d6c2b1;
+}
+
+.card .price {
+    display: inline-block;
     font-weight: bold;
     margin: 8px 0 16px;
     color: #a34000;
     font-size: 1.1rem;
+    background: #fff5ef;
+    border: 1px solid #f3d4c0;
+    border-radius: 999px;
+    padding: 8px 16px;
+}
+
+body.dark .card .price {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ffc98c;
+}
+
+.product-detail {
+    display: none;
+    text-align: left;
+    background: #fff8f3;
+    border: 1px solid #f0d7c2;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 12px 0;
+}
+
+body.dark .product-detail {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.product-detail.open {
+    display: block;
+}
+
+.product-detail label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #7a4b2a;
+}
+
+body.dark .product-detail label {
+    color: #f8d9bb;
+}
+
+.flavor-select {
+    width: 100%;
+    border: 1px solid #e8c7ad;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+    color: #333;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark .flavor-select {
+    background: #2a2a2a;
+    color: #f3e7df;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.flavor-select:focus {
+    outline: none;
+    border-color: #d97a2e;
+    box-shadow: 0 0 0 3px rgba(217, 122, 46, 0.15);
 }
 
 .card-actions {
@@ -135,6 +347,8 @@ button:active {
     background: linear-gradient(135deg, #25d366, #1ebc5d);
     color: white;
     box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+    padding: 12px 18px;
+    min-width: 110px;
 }
 
 .toast {
@@ -156,6 +370,37 @@ button:active {
     transform: translateY(0);
 }
 
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: linear-gradient(135deg, #25d366, #1ebc5d);
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: bold;
+    box-shadow: 0 12px 24px rgba(37, 211, 102, 0.35);
+    z-index: 1000;
+    animation: pulse 1.8s infinite;
+    letter-spacing: 0.02em;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
 @media (max-width: 600px) {
     .card-actions {
         flex-direction: column;
@@ -163,5 +408,11 @@ button:active {
 
     button {
         width: 100%;
+    }
+
+    .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 14px;
     }
 }

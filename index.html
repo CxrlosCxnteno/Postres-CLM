@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <div class="theme-toggle-wrap">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+            🌙 Modo oscuro
+        </button>
+    </div>
+
     <header class="hero">
         <div class="hero-banner">
             <img src="0.webp" alt="Postres CLM banner" />
@@ -18,39 +24,88 @@
     </header>
 
     <main class="productos">
-        <article class="card">
+        <article class="card best-seller" data-name="Postre Tres Leches" data-flavors="Vainilla, Chocolate, Fresa">
+            <span class="badge">Más vendido</span>
             <img src="1.webp" alt="Postre Tres Leches" />
             <h2>Postre Tres Leches</h2>
             <p>Delicioso postre con sabor casero.</p>
-            <span>$8.000</span>
+            <span class="price">$8.000</span>
+
+            <div class="product-detail">
+                <label for="sabor-1">Sabor</label>
+                <select id="sabor-1" class="flavor-select">
+                    <option value="Vainilla">Vainilla</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Fresa">Fresa</option>
+                </select>
+            </div>
+
             <div class="card-actions">
-                <button class="secondary-btn" type="button">Ver detalle</button>
-                <button class="buy-btn" type="button" data-product="Postre Tres Leches" data-price="8000">Comprar</button>
+                <button class="secondary-btn" type="button">Detalles</button>
+                <button class="buy-btn" type="button">Comprar</button>
             </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-name="Brownie sencillo" data-flavors="Chocolate, Oreo, Café">
             <img src="2.webp" alt="Brownie sencillo" />
             <h2>Brownie sencillo</h2>
             <p>Brownie suave con cobertura de chocolate.</p>
-            <span>$5.000</span>
+            <span class="price">$5.000</span>
+
+            <div class="product-detail">
+                <label for="sabor-2">Sabor</label>
+                <select id="sabor-2" class="flavor-select">
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Oreo">Oreo</option>
+                    <option value="Café">Café</option>
+                </select>
+            </div>
+
             <div class="card-actions">
-                <button class="secondary-btn" type="button">Ver detalle</button>
-                <button class="buy-btn" type="button" data-product="Brownie sencillo" data-price="5000">Comprar</button>
+                <button class="secondary-btn" type="button">Detalles</button>
+                <button class="buy-btn" type="button">Comprar</button>
             </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-name="Cheesecake" data-flavors="Frutos Rojos, Cookies, Dulce de Leche">
             <img src="3.webp" alt="Cheesecake" />
             <h2>Cheesecake</h2>
             <p>Cheesecake cremoso y muy fresquito.</p>
-            <span>$12.000</span>
+            <span class="price">$12.000</span>
+
+            <div class="product-detail">
+                <label for="sabor-3">Sabor</label>
+                <select id="sabor-3" class="flavor-select">
+                    <option value="Frutos Rojos">Frutos Rojos</option>
+                    <option value="Cookies">Cookies</option>
+                    <option value="Dulce de Leche">Dulce de Leche</option>
+                </select>
+            </div>
+
             <div class="card-actions">
-                <button class="secondary-btn" type="button">Ver detalle</button>
-                <button class="buy-btn" type="button" data-product="Cheesecake" data-price="12000">Comprar</button>
+                <button class="secondary-btn" type="button">Detalles</button>
+                <button class="buy-btn" type="button">Comprar</button>
             </div>
         </article>
     </main>
+
+    <section class="payment-banner" aria-label="Pago por Nequi">
+        <div class="payment-copy">
+            <span class="payment-tag">Método de pago</span>
+            <h3>Nequi</h3>
+            <p>Escanea el código QR o escríbeme por WhatsApp para confirmar tu pedido.</p>
+        </div>
+
+        <div class="qr-box">
+            <img src="4.webp" alt="Código QR de Nequi" />
+        </div>
+
+        <button id="nequi-button" type="button">Paga con Nequi</button>
+    </section>
+
+    <a class="whatsapp-float" href="https://wa.me/573242016455?text=Hola%20quiero%20hacer%20mi%20pedido" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+        WhatsApp
+    </a>
 
     <div id="toast" class="toast" aria-live="polite">Producto agregado</div>
 
