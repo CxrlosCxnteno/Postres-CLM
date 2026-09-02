@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postres CLM</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-banner">
+            <img src="0.webp" alt="Postres CLM banner" />
+        </div>
+        <div class="hero-text">
+            <h1>COMPRA TUS POSTRES</h1>
+            <p>Postres caseros con sabor irresistible</p>
+        </div>
+    </header>
+
+    <main class="productos">
+        <article class="card">
+            <img src="1.webp" alt="Postre Tres Leches" />
+            <h2>Postre Tres Leches</h2>
+            <p>Delicioso postre con sabor casero.</p>
+            <span>$8.000</span>
+            <div class="card-actions">
+                <button class="secondary-btn" type="button">Ver detalle</button>
+                <button class="buy-btn" type="button" data-product="Postre Tres Leches" data-price="8000">Comprar</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="2.webp" alt="Brownie sencillo" />
+            <h2>Brownie sencillo</h2>
+            <p>Brownie suave con cobertura de chocolate.</p>
+            <span>$5.000</span>
+            <div class="card-actions">
+                <button class="secondary-btn" type="button">Ver detalle</button>
+                <button class="buy-btn" type="button" data-product="Brownie sencillo" data-price="5000">Comprar</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="3.webp" alt="Cheesecake" />
+            <h2>Cheesecake</h2>
+            <p>Cheesecake cremoso y muy fresquito.</p>
+            <span>$12.000</span>
+            <div class="card-actions">
+                <button class="secondary-btn" type="button">Ver detalle</button>
+                <button class="buy-btn" type="button" data-product="Cheesecake" data-price="12000">Comprar</button>
+            </div>
+        </article>
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite">Producto agregado</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
